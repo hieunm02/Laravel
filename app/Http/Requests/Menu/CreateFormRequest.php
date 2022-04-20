@@ -25,7 +25,6 @@ class CreateFormRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'parent_cate' => 'required',
             'active' => 'required',
         ];
     }
@@ -34,7 +33,6 @@ class CreateFormRequest extends FormRequest
     {
         return [
             'name.required' => 'Vui lòng nhập tên danh mục',
-            'parent_cate.required' => 'Vui lòng chọn danh mục cha',
             'active.required' => 'Vui lòng chọn kích hoạt',
         ];
     }
