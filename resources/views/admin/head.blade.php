@@ -10,3 +10,5 @@
 <link rel="stylesheet" href="/template/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="/template/admin/dist/css/adminlte.min.css">
+
+@yield('head')
