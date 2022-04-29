@@ -10,7 +10,7 @@ class Helper{
                 <tr>
                 <td>' . $menu->id . '</td>    
                 <td>' . $char . $menu->name . '</td>    
-                <td>' . $menu->active . '</td>    
+                <td>' . self::active( $menu->active ) . '</td>    
                 <td>' . $menu->updated_at . '</td>    
             
                 <td>
@@ -27,6 +27,11 @@ class Helper{
             }
         }
         return $html;
+    }
+
+    public static function active($active = 1) : string
+    {
+        return $active == 1 ? '<span class="btn btn-danger btn-xs">No</span>' : '<span class="btn btn-success btn-xs">Yes</span>';
     }
 }
 
