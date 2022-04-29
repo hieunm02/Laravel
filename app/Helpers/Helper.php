@@ -13,7 +13,11 @@ class Helper{
                 <td>' . $menu->active . '</td>    
                 <td>' . $menu->updated_at . '</td>    
             
-                <td></td>
+                <td>
+                    <a href="/admin/menus/edit/'. $menu->id . '" class="btn btn-primary btn-sm" ><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger btn-sm" onclick="removeRow('. $menu->id .', \'/admin/menus/destroy\')"><i class="fas fa-trash"></i>
+                    </a>
+                </td>
                 </tr>
                 ';
 

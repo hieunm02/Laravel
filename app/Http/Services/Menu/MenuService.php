@@ -33,6 +33,16 @@ use Illuminate\Support\Str;
 
             return true;
         }
+
+        public function destroy($request){
+            $id = $request->input('id');
+
+            $menu = Menu::where('id', $id)->first();
+            if($menu){
+                return Menu::where('id', $id)->orWhere('parent_id', $id)->delete();
+            }
+            return false;
+        }
     }
 
 ?>
