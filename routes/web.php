@@ -37,6 +37,11 @@ Route::middleware('auth')->group(function () {
             Route::post('edit/{menu}', [MenuController::class, 'update']);
             Route::DELETE('destroy', [MenuController::class, 'destroy']);
         });
+
+        //Product
+        Route::prefix('products')->group(function () {
+
+        });
     });
 });
 Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
