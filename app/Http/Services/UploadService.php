@@ -12,8 +12,8 @@
 
                 $pathFull = 'uploads/' . date("Y/m/d");
 
-                $path = $request->file('file')->storeAs(
-                'public/' . $pathFull, $name
+                $request->file('file')->storeAs(
+                    'public/' . $pathFull, $name
 
                 );
                 return  '/storage/' . $pathFull . '/' . $name ;

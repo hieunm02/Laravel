@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-<form action="" method="POST" enctype="multipart/form-data">
+<form action="" method="POST">
     <div class="card-body">
       <div class="row">
         <div class="col-md-6">
@@ -17,7 +17,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <label>Danh mục</label>
-        <select name="parent_id" class="form-control" id="">
+        <select name="menu_id" class="form-control" id="">
             <option value="0">Danh mục cha</option>
             @foreach ($menu_id as $menu_id)
             <option value="{{$menu_id->id}}">{{$menu_id->name}}</option>
@@ -60,7 +60,7 @@
     <div id="image_show">
 
     </div>
-    <input type="hidden" name="file" id="file">
+    <input type="hidden" name="thumb"  id="thumb">
   </div>
 
       <div class="form-group">
