@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,8 +42,16 @@ Route::middleware('auth')->group(function () {
 
         //Product
         Route::prefix('products')->group(function () {
-
+            Route::get('add', [ProductController::class, 'create']);
+            Route::post('add', [ProductController::class, 'store']);
+            Route::get('list', [ProductController::class, 'index']);
+            Route::get('edit/{menu}', [ProductController::class, 'show']);
+            Route::post('edit/{menu}', [ProductController::class, 'update']);
+            Route::DELETE('destroy', [ProductController::class, 'destroy']);
         });
+
+        //upload
+        Route::post('upload/services', [UploadController::class, 'store']);
     });
 });
 Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
