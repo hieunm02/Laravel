@@ -87,9 +87,15 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $result = $this->productService->update($request, $product);
+        
+        if($result){
+            return redirect('/admin/products/list');
+        }
+        return redirect()->back();
+
     }
 
     /**

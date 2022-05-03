@@ -47,5 +47,24 @@ use Illuminate\Support\Facades\Session;
             return Product::with('menu')
             ->orderByDesc('id')->paginate(15);
         }
+
+        public function update($request, $product)
+        {
+            $isValidPrice = $this->isValidPrice($request);
+            if($isValidPrice == false) return false;
+
+            try{
+            $product->fill($request->input());
+            $product->save();
+            Session::flash('success', 'Cập nhật thành công');
+
+            } catch (\Exception $err) {
+                Session::flash('error', 'Lỗi cập nhật sản phẩm');
+                \Log::info($err->getMessage());
+                return false;
+            }
+            
+            return true;
+        }
     }
 ?>
