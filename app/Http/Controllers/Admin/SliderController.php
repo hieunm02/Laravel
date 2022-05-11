@@ -21,4 +21,16 @@ class SliderController extends Controller
             'title' => 'Thêm mới slider',
         ]);
     }
+
+    public function store(Request $request){
+        $this->validate($request, [
+            'name' => 'required',
+            'thumb' => 'required',
+            'url' => 'required',
+        ]);
+
+        $this->slider->insert($request);
+
+        return redirect()->back();
+    }
 }

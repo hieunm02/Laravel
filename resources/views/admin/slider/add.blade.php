@@ -36,7 +36,7 @@
 
     <div class="form-group">
         <label for="menu">Sắp xếp</label>
-        <input type="number" name="sort_by" value="{{ old('sort_by') }}"  class="form-control" >
+        <input type="number" name="sort_by" value="1"  class="form-control" >
     </div>
 
       <div class="form-group">
