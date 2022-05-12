@@ -5,6 +5,7 @@ namespace App\Http\Services\Slider;
 use App\Models\Slider;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class SliderService
 {
@@ -30,6 +31,8 @@ class SliderService
         $slider = Slider::where('id', $request->input('id'))->first();
 
         if($slider){
+            $parth = str_replace('storage', 'public', $slider->thumb); 
+            Storage::delete($parth);
             $slider->delete();
             return true;
         }
