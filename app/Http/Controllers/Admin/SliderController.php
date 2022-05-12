@@ -33,4 +33,11 @@ class SliderController extends Controller
 
         return redirect()->back();
     }
+
+    public function index(){
+        return view('admin.slider.list', [
+            'title' => 'Danh sách slider',
+            'sliders' => $this->slider->get(),
+        ]);
+    }
 }
