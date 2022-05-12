@@ -34,8 +34,8 @@
                 
             
                 <td>
-                    <a href="/admin/slider/edit/{{ $slider->id }}" class="btn btn-primary btn-sm" ><i class="fas fa-edit"></i></a>
-                    <a class="btn btn-danger btn-sm" onclick="removeRow({{ $slider->id }}, '/admin/slider/destroy')"><i class="fas fa-trash"></i>
+                    <a href="/admin/sliders/edit/{{ $slider->id }}" class="btn btn-primary btn-sm" ><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger btn-sm" onclick="removeRow({{ $slider->id }}, '/admin/sliders/destroy')"><i class="fas fa-trash"></i>
                     </a>
                 </td>
                 </tr>
