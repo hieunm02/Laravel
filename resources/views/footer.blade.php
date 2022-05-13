@@ -112,23 +112,23 @@
         <div class="p-t-40">
             <div class="flex-c-m flex-w p-b-18">
                 <a href="#" class="m-all-1">
-                    <img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
+                    <img src="/template/images/icons/icon-pay-01.png" alt="ICON-PAY">
                 </a>
 
                 <a href="#" class="m-all-1">
-                    <img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
+                    <img src="/template/images/icons/icon-pay-02.png" alt="ICON-PAY">
                 </a>
 
                 <a href="#" class="m-all-1">
-                    <img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
+                    <img src="/template/images/icons/icon-pay-03.png" alt="ICON-PAY">
                 </a>
 
                 <a href="#" class="m-all-1">
-                    <img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
+                    <img src="/template/images/icons/icon-pay-04.png" alt="ICON-PAY">
                 </a>
 
                 <a href="#" class="m-all-1">
-                    <img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
+                    <img src="/template/images/icons/icon-pay-05.png" alt="ICON-PAY">
                 </a>
             </div>
 
@@ -158,7 +158,7 @@ Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
     <div class="container">
         <div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
             <button class="how-pos3 hov3 trans-04 js-hide-modal1">
-                <img src="images/icons/icon-close.png" alt="CLOSE">
+                <img src="/template/images/icons/icon-close.png" alt="CLOSE">
             </button>
 
             <div class="row">
@@ -171,7 +171,7 @@ Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
                             <div class="slick3 gallery-lb">
                                 <div class="item-slick3" data-thumb="images/product-detail-01.jpg">
                                     <div class="wrap-pic-w pos-relative">
-                                        <img src="images/product-detail-01.jpg" alt="IMG-PRODUCT">
+                                        <img src="/template/images/product-detail-01.jpg" alt="IMG-PRODUCT">
 
                                         <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
                                             <i class="fa fa-expand"></i>
@@ -181,7 +181,7 @@ Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
 
                                 <div class="item-slick3" data-thumb="images/product-detail-02.jpg">
                                     <div class="wrap-pic-w pos-relative">
-                                        <img src="images/product-detail-02.jpg" alt="IMG-PRODUCT">
+                                        <img src="/template/images/product-detail-02.jpg" alt="IMG-PRODUCT">
 
                                         <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-02.jpg">
                                             <i class="fa fa-expand"></i>
@@ -191,7 +191,7 @@ Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
 
                                 <div class="item-slick3" data-thumb="images/product-detail-03.jpg">
                                     <div class="wrap-pic-w pos-relative">
-                                        <img src="images/product-detail-03.jpg" alt="IMG-PRODUCT">
+                                        <img src="/template/images/product-detail-03.jpg" alt="IMG-PRODUCT">
 
                                         <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-03.jpg">
                                             <i class="fa fa-expand"></i>
