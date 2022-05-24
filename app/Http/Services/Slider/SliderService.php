@@ -52,4 +52,8 @@ class SliderService
 
         return true;
     }
+
+    public function show(){
+        return Slider::where('active', 0)->orderbyDesc('sort_by')->get();
+    }
 }
