@@ -69,3 +69,4 @@ Route::middleware('auth')->group(function () {
 Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
 Route::post('admin/users/login/store', [LoginController::class, 'store']);
 Route::get('/', [ControllersMainController::class, 'index']);
+Route::post('/services/load-product', [ControllersMainController::class, 'loadProduct']);

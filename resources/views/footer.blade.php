@@ -406,3 +406,4 @@ Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
 </script>
 <!--===============================================================================================-->
 <script src="/template/js/main.js"></script>
+<script src="/template/js/public.js"></script>

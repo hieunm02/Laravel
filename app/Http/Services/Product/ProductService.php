@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Session;
     class ProductService 
     {
         public function getMenu(){
-            return Menu::where('active', 1)->get();
+            return Menu::where('active', 0)->get();
         }
 
         protected function isValidPrice($request){
