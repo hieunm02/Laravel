@@ -21,6 +21,7 @@ use Illuminate\Support\Str;
                     'parent_id' => (int) $request->input('parent_id'),
                     'description' => (string) $request->input('description'),
                     'content' => (string) $request->input('content'),
+                    'thumb' => (string) $request->input('thumb'),
                     'active' => (string) $request->input('active'),
                     'slug' => Str::slug($request->input('name'), '-')
                 ]);
@@ -55,10 +56,16 @@ use Illuminate\Support\Str;
             $menu->description = (string) $request->input('description');
             $menu->content = (string) $request->input('content');
             $menu->active = (string) $request->input('active');
+            $menu->thumb = (string) $request->input('thumb');
+
             $menu->save();
 
             Session::flash('success','Cập nhật danh mục thành công !');
             return true;
+        }
+
+        public function show(){
+            return Menu::where('parent_id', '!=' , 0)->get();
         }
     }
 

@@ -14,6 +14,7 @@ class Menu extends Model
         'parent_id',
         'description',
         'content',
+        'thumb',
         'slug',
         'active',
     ];
