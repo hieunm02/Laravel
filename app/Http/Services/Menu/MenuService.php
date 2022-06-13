@@ -67,6 +67,20 @@ use Illuminate\Support\Str;
         public function show(){
             return Menu::where('parent_id', '!=' , 0)->get();
         }
+
+        public function getId($id)
+        {
+            return Menu::where('id', $id)->where('active', 0)->firstOrFail();
+
+        }
+
+        public function getProduct($menu)
+        {
+            return $menu->products()->select('id', 'name', 'price', 'price_sale', 'thumb')
+                        ->where('active', 0)
+                        ->orderbyDesc('id')
+                        ->paginate(12);
+        }
     }
 
 ?>

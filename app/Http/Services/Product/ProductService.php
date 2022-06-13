@@ -77,5 +77,20 @@ use Illuminate\Support\Facades\Session;
 
             return false;
         }
+
+        public function show($id){
+            return Product::where('id', $id)
+                            ->where('active', 0)
+                            ->with('menu')
+                            ->firstOrFail();
+        }
+
+        public function more($id){
+            return Product::select('id', 'name', 'price', 'price_sale', 'thumb')
+                            ->where('active', 0)
+                            ->where('id', '!=', $id)
+                            ->limit(8)
+                            ->get();
+        }
     }
 ?>

@@ -33,3 +33,9 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="/template/css/style.css">
 <meta name="csrf-token" content="{{ csrf_token() }}">
+
+<style>
+    .hidden{
+        display: none;
+    }
+</style>
