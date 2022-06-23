@@ -13,7 +13,7 @@
     </span>
 </div>
 
-
+@include('admin.alert')
 <form class="bg0 p-t-75 p-b-85" method="post">
 
     @if(count($products) != 0)
@@ -120,43 +120,30 @@
                     </div>
 
                     <div class="flex-w flex-t bor12 p-t-15 p-b-30">
-                        <div class="size-208 w-full-ssm">
-                            <span class="stext-110 cl2">
-                                Shipping:
-                            </span>
-                        </div>
-
-                        <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
-                            <p class="stext-111 cl6 p-t-2">
-                                There are no shipping methods available. Please double check your address, or contact us if you need any help.
-                            </p>
+                        <div class="size-100 p-r-18 p-r-0-sm w-full-ssm">
                             
                             <div class="p-t-15">
                                 <span class="stext-112 cl8">
-                                    Calculate Shipping
+                                    Thông tin khách hàng
                                 </span>
-
-                                <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-                                    <select class="js-select2 select2-hidden-accessible" name="time" tabindex="-1" aria-hidden="true">
-                                        <option>Select a country...</option>
-                                        <option>USA</option>
-                                        <option>UK</option>
-                                    </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 144.222px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-time-36-container"><span class="select2-selection__rendered" id="select2-time-36-container" title="Select a country...">Select a country...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                    <div class="dropDownSelect2"></div>
-                                </div>
-
                                 <div class="bor8 bg0 m-b-12">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="State /  country">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="name" placeholder="Tên khách hàng" >
                                 </div>
 
                                 <div class="bor8 bg0 m-b-22">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode" placeholder="Postcode / Zip">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="number" name="phone" placeholder="Số điện thoại" >
                                 </div>
                                 
-                                <div class="flex-w">
-                                    <div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
-                                        Update Totals
-                                    </div>
+                                <div class="bor8 bg0 m-b-22">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="address" placeholder="Địa chỉ nhận hàng">
+                                </div>                                
+                                
+                                <div class="bor8 bg0 m-b-22">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="email" name="email" placeholder="Email liên hệ">
+                                </div>                                
+                                
+                                <div class="bor8 bg0 m-b-22">
+                                    <textarea class="stext-111 cl8 plh3 size-111 p-lr-15" name="content" placeholder="Ghi chú" ></textarea>
                                 </div>
                                     
                             </div>
@@ -164,7 +151,7 @@
                     </div>
 
                     <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                        Proceed to Checkout
+                        Đặt hàng
                     </button>
                 </div>
             </div>
