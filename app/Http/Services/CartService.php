@@ -1,6 +1,7 @@
 <?php
     namespace App\Http\Services;
 
+use App\Jobs\SendMail;
 use App\Models\Cart;
 use App\Models\Customer;
 use App\Models\Product;
@@ -85,8 +86,12 @@ use Illuminate\Support\Facades\Session;
 
                 $this->infoProductCart($carts, $customer->id);
                 
-                DB::commit();
+                DB::commit(); 
                 Session::flash('success', 'Đặt hàng thành công');
+
+                //Queue
+                SendMail::dispatch($request->input('email'))->delay(now()->addSeconds(2));
+
                 Session::forget('carts');
             } catch (\Exception $err) {
                 DB::rollBack();
