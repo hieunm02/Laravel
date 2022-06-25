@@ -8,7 +8,9 @@ use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\LoginController as ControllersLoginController;
 use App\Http\Controllers\MainController as ControllersMainController;
 use App\Http\Controllers\MenuController as ControllersMenuController;
 use App\Http\Controllers\ProductController as ControllersProductController;
@@ -87,3 +89,10 @@ Route::get('carts', [CartController::class, 'show']);
 Route::post('/update-cart', [CartController::class, 'update']);
 Route::get('carts/delete/{id}', [CartController::class, 'remove']);
 Route::post('carts', [CartController::class, 'addCart']);
+
+//login with google
+Route::get('/auth/google/redirect', [AuthController::class, 'googleredirect']);
+Route::get('/auth/google/callback', [AuthController::class, 'googlecallback']);
+
+//form login
+Route::get('/login', [ControllersLoginController::class, 'index']);

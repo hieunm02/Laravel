@@ -1,7 +1,12 @@
 		@php
 			$menuHtml = App\Helpers\Helper::menus($menus);
 			if(is_null(Session::get('carts'))) { $productQuantity = 0; } 
-      		else $productQuantity = count(Session::get('carts'));                 
+      		else $productQuantity = count(Session::get('carts')); 
+			
+			// if(is_null(Session::get('user_name'))){$user_name = 'Đăng nhập';}
+			// else $user_name = Session::get('user_name');
+			
+		
 		@endphp
 		
 		<!-- Header desktop -->
@@ -30,6 +35,9 @@
 							<li>
 								<a href="contact.html">Liên hệ</a>
 							</li>
+
+							
+
 						</ul>
 					</div>	
 
@@ -42,6 +50,59 @@
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" 
 						data-notify="{{ $productQuantity }}">
 							<i class="zmdi zmdi-shopping-cart"></i>
+						</div>
+
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 dropdown">
+						<ul class="main-menu">
+							
+								
+								<li>
+									@if (is_null(Session::get('user_name')))
+										<i class="fas fa-user"></i>
+									
+									
+									<ul class="sub-menu">
+								<li>
+									<a href="/login">
+										Đăng nhập
+									</a></li>
+
+									@else
+									<a>
+									{{ Session::get('user_name')}}
+									</a>
+									<ul class="sub-menu">
+								<li>
+									<a href="">
+										Thông tin tài khoản
+									</a>
+									</li>	
+								<li>
+									<a href="">
+										Danh sách đơn hàng
+									</a>
+									</li>	
+								<li>
+									<a href="">
+										Đăng xuất
+									</a>
+									</li>	
+								@endif
+								
+								{{-- <li>
+									<a href="/danh-muc/31-women.html">
+										Women
+									</a></li>
+								
+								
+								<li>
+									<a href="/danh-muc/30-men.html">
+										Men
+									</a></li> --}}
+								
+								</ul></li>
+						</ul>
+							
 						</div>
 
 					</div>
@@ -91,6 +152,10 @@
 
 				<li>
 					<a href="contact.html">Liên hệ</a>
+				</li>
+
+				<li>
+					<a href="/login">Đăng nhập</a>
 				</li>
 			</ul>
 		</div>
