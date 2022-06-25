@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CartController as AdminCartController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ProductController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController as ControllersMainController;
 use App\Http\Controllers\MenuController as ControllersMenuController;
 use App\Http\Controllers\ProductController as ControllersProductController;
+use App\Models\Customer;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +69,11 @@ Route::middleware('auth')->group(function () {
 
         //upload
         Route::post('upload/services', [UploadController::class, 'store']);
+
+        //cart
+        Route::get('customers', [AdminCartController::class, 'index']);
+
+        Route::get('customers/view/{customer}', [AdminCartController::class, 'show']);
     });
 });
 Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
