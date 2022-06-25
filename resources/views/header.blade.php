@@ -19,7 +19,7 @@
 					
 					<!-- Logo desktop -->		
 					<a href="/" class="logo">
-						<img src="/template/images/icons/logo-01.png" alt="IMG-LOGO">
+						<img src="https://www.vogue.com/verso/static/vogue/assets/favicon.ico" alt="">
 					</a>
 
 					<!-- Menu desktop -->
