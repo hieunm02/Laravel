@@ -63,7 +63,7 @@
 									
 									<ul class="sub-menu">
 								<li>
-									<a href="/login">
+									<a href="/user_login">
 										Đăng nhập
 									</a></li>
 
@@ -83,7 +83,7 @@
 									</a>
 									</li>	
 								<li>
-									<a href="">
+									<a href="/logout">
 										Đăng xuất
 									</a>
 									</li>	

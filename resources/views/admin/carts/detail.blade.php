@@ -3,6 +3,7 @@
 @section('content') 
     <div class="customer mt-5">
         <ul>
+            <li>Mã khách hàng: <strong>{{ $customer->user_id }}</strong> </li>
             <li>Tên khách hàng: <strong>{{ $customer->name }}</strong> </li>
             <li>Số điện thoại: <strong>{{ $customer->phone }}</strong> </li>
             <li>Địa chỉ: <strong>{{ $customer->address }}</strong> </li>

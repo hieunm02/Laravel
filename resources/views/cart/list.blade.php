@@ -123,11 +123,12 @@
                         <div class="size-100 p-r-18 p-r-0-sm w-full-ssm">
                             
                             <div class="p-t-15">
+                                <input type="hidden" name="user_id" value="{{ Session::get('user_id' ?? '') }}">
                                 <span class="stext-112 cl8">
                                     Thông tin khách hàng
                                 </span>
                                 <div class="bor8 bg0 m-b-12">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="name" placeholder="Tên khách hàng" >
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="name" disabled placeholder="Tên khách hàng" value="{{ Session::get('user_name' ?? '') }}">
                                 </div>
 
                                 <div class="bor8 bg0 m-b-22">
@@ -139,7 +140,7 @@
                                 </div>                                
                                 
                                 <div class="bor8 bg0 m-b-22">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="email" name="email" placeholder="Email liên hệ">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="email" name="email" disabled placeholder="Email liên hệ" value="{{ Session::get('user_email' ?? '') }}">
                                 </div>                                
                                 
                                 <div class="bor8 bg0 m-b-22">

@@ -76,6 +76,7 @@ use Illuminate\Support\Facades\Session;
                 return false;
 
                 $customer = Customer::create([
+                    'user_id' => $request->input('user_id'),
                     'name' => $request->input('name'),
                     'phone' => $request->input('phone'),
                     'address' => $request->input('address'),

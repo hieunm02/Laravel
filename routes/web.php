@@ -27,11 +27,11 @@ use App\Models\Customer;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('admin')->group(function () {
 
     Route::prefix('admin')->group(function () {
 
@@ -92,7 +92,12 @@ Route::post('carts', [CartController::class, 'addCart']);
 
 //login with google
 Route::get('/auth/google/redirect', [AuthController::class, 'googleredirect']);
+Route::get('/auth/google/redirect', [AuthController::class, 'googleredirect'])->name('login/google/admin');
+
 Route::get('/auth/google/callback', [AuthController::class, 'googlecallback']);
 
 //form login
-Route::get('/login', [ControllersLoginController::class, 'index']);
+Route::get('/user_login', [ControllersLoginController::class, 'index']);
+
+//logout
+Route::get('/logout', [ControllersLoginController::class, 'logout']);

@@ -23,6 +23,9 @@ class AuthController extends Controller
 
         $user = User::where('email', $userdata->email)->where('auth_type', 'google')->first();
         Session::put('user_name', $userdata->name);
+        Session::put('user_email', $userdata->email);
+        Session::put('user_id', $user->id);
+
         if($user){
             //do login
 
@@ -38,10 +41,12 @@ class AuthController extends Controller
             $user->email = $userdata->email;
             $user->password = Hash::make($uuid.now());
             $user->auth_type = 'google';
+            $user->role = 2;
             $user->save();
             return redirect('/');
 
         }
+        Session::flush();
 
 
     }   
