@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\CartService;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -51,5 +52,13 @@ class CartController extends Controller
         $this->cartService->addCart($request);
         return redirect()->back();
 
+    }
+
+    public function order(Customer $customer){
+        return view('order', [
+            'title' => 'Đơn hàng' . $customer->name,
+            'customer' => $customer,
+            'carts' => $customer->carts()->with('product')->get(),
+        ]);
     }
 }

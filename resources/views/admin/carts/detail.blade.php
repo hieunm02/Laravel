@@ -8,7 +8,6 @@
             <li>Số điện thoại: <strong>{{ $customer->phone }}</strong> </li>
             <li>Địa chỉ: <strong>{{ $customer->address }}</strong> </li>
             <li>Email: <strong>{{ $customer->email }}</strong> </li>
-            <li>Ghi chú: <strong>{{ $customer->content }}</strong> </li>
         </ul>
     </div>
 

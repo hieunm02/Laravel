@@ -128,7 +128,7 @@
                                     Thông tin khách hàng
                                 </span>
                                 <div class="bor8 bg0 m-b-12">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="name" disabled placeholder="Tên khách hàng" value="{{ Session::get('user_name' ?? '') }}">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="hidden" name="name" placeholder="Tên khách hàng" value="{{ Session::get('user_name' ?? '') }}">
                                 </div>
 
                                 <div class="bor8 bg0 m-b-22">
@@ -140,13 +140,8 @@
                                 </div>                                
                                 
                                 <div class="bor8 bg0 m-b-22">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="email" name="email" disabled placeholder="Email liên hệ" value="{{ Session::get('user_email' ?? '') }}">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="hidden" name="email"  placeholder="Email liên hệ" value="{{ Session::get('user_email' ?? '') }}">
                                 </div>                                
-                                
-                                <div class="bor8 bg0 m-b-22">
-                                    <textarea class="stext-111 cl8 plh3 size-111 p-lr-15" name="content" placeholder="Ghi chú" ></textarea>
-                                </div>
-                                    
                             </div>
                         </div>
                     </div>

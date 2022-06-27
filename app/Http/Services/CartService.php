@@ -81,8 +81,6 @@ use Illuminate\Support\Facades\Session;
                     'phone' => $request->input('phone'),
                     'address' => $request->input('address'),
                     'email' => $request->input('email'),
-                    'content' => $request->input('content'),
-
                 ]);
 
                 $this->infoProductCart($carts, $customer->id);

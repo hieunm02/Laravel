@@ -101,3 +101,6 @@ Route::get('/user_login', [ControllersLoginController::class, 'index']);
 
 //logout
 Route::get('/logout', [ControllersLoginController::class, 'logout']);
+
+//Danh sách đơn hàng phía người dùng
+Route::get('/order', [CartController::class, 'order']);
