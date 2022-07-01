@@ -74,10 +74,12 @@ Route::middleware('admin')->group(function () {
 
         //cart
         Route::get('customers', [AdminCartController::class, 'index']);
+        Route::post('customers/update', [AdminCartController::class, 'update'])->name('customer/update');
 
         Route::get('customers/view/{customer}', [AdminCartController::class, 'show']);
     });
 });
+
 Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
 Route::post('admin/users/login/store', [LoginController::class, 'store']);
 Route::get('/', [ControllersMainController::class, 'index']);
@@ -88,7 +90,16 @@ Route::post('add-cart', [CartController::class, 'index']);
 Route::get('carts', [CartController::class, 'show']);
 Route::post('/update-cart', [CartController::class, 'update']);
 Route::get('carts/delete/{id}', [CartController::class, 'remove']);
-Route::post('carts', [CartController::class, 'addCart']);
+
+Route::middleware('user_login')->group( function () {
+
+    // Mua hàng
+    Route::post('carts', [CartController::class, 'addCart']);
+
+    //Danh sách đơn hàng phía người dùng
+Route::get('/order_user/{id}/menu/{menuId?}', [CartController::class, 'order']);
+});
+
 
 //login with google
 Route::get('/auth/google/redirect', [AuthController::class, 'googleredirect']);
@@ -102,5 +113,4 @@ Route::get('/user_login', [ControllersLoginController::class, 'index']);
 //logout
 Route::get('/logout', [ControllersLoginController::class, 'logout']);
 
-//Danh sách đơn hàng phía người dùng
-Route::get('/order', [CartController::class, 'order']);
+
