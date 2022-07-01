@@ -15,7 +15,10 @@ class LoginController extends Controller
     }
 
     public function logout(){
-        Session::flush();
+        Session::forget('user_name');
+        Session::forget('user_id');
+        Session::forget('user_email');
+        Session::forget('carts');
         return redirect('/');
     }
 
