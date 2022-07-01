@@ -7,6 +7,7 @@ use App\Models\Customer;
 use App\Models\Product;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
     class CartService {
@@ -83,7 +84,7 @@ use Illuminate\Support\Facades\Session;
                     'email' => $request->input('email'),
                 ]);
 
-                $this->infoProductCart($carts, $customer->id);
+                $this->infoProductCart($carts, $customer->id, $customer->user_id);
                 
                 DB::commit(); 
                 Session::flash('success', 'Đặt hàng thành công');
@@ -100,7 +101,7 @@ use Illuminate\Support\Facades\Session;
             return true;
         }
 
-        protected function infoProductCart($carts, $customer_id){
+        protected function infoProductCart($carts, $customer_id, $user_id){
             $productId = array_keys($carts);
             $products = Product::select('id', 'name', 'price', 'price_sale', 'thumb')
                             ->where('active', 0)
@@ -111,6 +112,7 @@ use Illuminate\Support\Facades\Session;
             foreach($products as $product){
                 $data[] = [
                     'customer_id' => $customer_id,
+                    'user_id' => $user_id,
                     'product_id' => $product->id,
                     'qty' => $carts[$product->id],
                     'price' => $product->price_sale != 0 ? $product->price_sale : $product->price,
@@ -120,8 +122,41 @@ use Illuminate\Support\Facades\Session;
             return Cart::insert($data);
         }
 
+        
+
         public function getCustomer(){
-            return Customer::orderByDesc('id')->paginate(15);
+            // return Customer::orderByDesc('id')->paginate(15);
+
+            return DB::table('customers')
+                    ->join('carts', 'customers.id', '=', 'carts.customer_id')
+                    ->select('customers.id', 'customers.name', 'customers.phone', 'customers.email', 'customers.created_at', 'carts.status as status')
+                    ->distinct()
+                    ->orderByDesc('customers.id')
+                    ->paginate(15);
+
+        }
+
+        public function getStatus(){
+            return DB::table('customers')
+                    ->join('carts', 'customers.id', '=', 'carts.customer_id')
+                    ->select('customers.id', 'carts.status as status')
+                    ->distinct()
+                    ->get();
+        }
+
+        public function updateStatus($request, $cart)
+        {
+            try{
+            DB::table('carts')->where('customer_id', $request->input('customer_id'))->update(['status' => $request->input('status')]);
+            Session::flash('success', 'Cập nhật thành công');
+
+            } catch (\Exception $err) {
+                Session::flash('error', 'Lỗi cập nhật trạng thái');
+                Log::info($err->getMessage());
+                return false;
+            }
+            
+            return true;
         }
     }
 ?>

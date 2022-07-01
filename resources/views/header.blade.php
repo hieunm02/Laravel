@@ -78,7 +78,7 @@
 									</a>
 									</li>	
 								<li>
-									<a href="">
+									<a href="/order_user/{{ Session::get('user_id') }}/menu">
 										Danh sách đơn hàng
 									</a>
 									</li>	
@@ -88,17 +88,6 @@
 									</a>
 									</li>	
 								@endif
-								
-								{{-- <li>
-									<a href="/danh-muc/31-women.html">
-										Women
-									</a></li>
-								
-								
-								<li>
-									<a href="/danh-muc/30-men.html">
-										Men
-									</a></li> --}}
 								
 								</ul></li>
 						</ul>
@@ -155,7 +144,32 @@
 				</li>
 
 				<li>
-					<a href="/login">Đăng nhập</a>
+					<li>
+						@if (is_null(Session::get('user_name')))
+						<a href="/user_login">Đăng nhập</a>
+
+						
+						
+						<ul class="sub-menu">
+
+						@else
+
+					<li>
+						<a href="">
+							Thông tin tài khoản
+						</a>
+						</li>	
+					<li>
+						<a href="/order_user/{{ Session::get('user_id') }}/menu">
+							Danh sách đơn hàng
+						</a>
+						</li>	
+					<li>
+						<a href="/logout">
+							Đăng xuất
+						</a>
+						</li>	
+					@endif
 				</li>
 			</ul>
 		</div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\CartService;
+use App\Models\Cart;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -54,11 +55,15 @@ class CartController extends Controller
 
     }
 
-    public function order(Customer $customer){
+    public function order($id, $menu = null){
+        if(!is_null($menu)){
+            $carts = Cart::where('user_id', $id)->where('status', $menu)->with('product')->orderbyDesc('id')->paginate(5);
+        }else{
+            $carts = Cart::where('user_id', $id)->with('product')->orderbyDesc('id')->paginate(5);
+        }
         return view('order', [
-            'title' => 'Đơn hàng' . $customer->name,
-            'customer' => $customer,
-            'carts' => $customer->carts()->with('product')->get(),
+            'title' => 'Đơn hàng',
+            'orders' => $carts,
         ]);
     }
 }
