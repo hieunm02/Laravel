@@ -22,14 +22,17 @@ class AuthController extends Controller
         $userdata = Socialite::driver('google')->user();
 
         $user = User::where('email', $userdata->email)->where('auth_type', 'google')->first();
-        Session::put('user_name', $userdata->name);
-        Session::put('user_email', $userdata->email);
-        Session::put('user_id', $user->id);
+
 
         if($user){
             //do login
 
             Auth::login($user);
+
+            Session::put('user_name', $userdata->name);
+            Session::put('user_email', $userdata->email);
+            Session::put('user_id', $user->id);
+
             return redirect('/');
         }else{
             //register
@@ -43,11 +46,17 @@ class AuthController extends Controller
             $user->auth_type = 'google';
             $user->role = 2;
             $user->save();
+
+            Auth::login($user);
+
+            Session::put('user_name', $userdata->name);
+            Session::put('user_email', $userdata->email);
+            Session::put('user_id', $user->id);
+
             return redirect('/');
 
         }
-        Session::flush();
-
+        // Session::flush();
 
     }   
 }
