@@ -45,7 +45,6 @@
             @foreach($orders as $key => $order)
                 @php
                     $price = $order->price * $order->qty;
-                    $total += $price;
                 @endphp
                 <tr>
                     <td class="column-1">
@@ -73,7 +72,7 @@
 
                 <tr>
                     <td colspan="3" class="text-right">Tổng Tiền</td>
-                    <td>{{ number_format($total, 0, '', '.') }} đ</td>
+                    <td>{{ number_format($price, 0, '', '.') }} đ</td>
                     <td class="text-left">
                         @if ($order->status == 3 || $order->status == 4)
                         <a href="/san-pham/{{ $order->product->id }}-{{ Str::slug($order->product->name, '-') }}">
@@ -81,10 +80,16 @@
                         </a>
                         @endif
 
-                        @if ($order->status == 0 || $order->status == 1 || $order->status == 2)
-                        <a href="/san-pham/{{ $order->product->id }}-{{ Str::slug($order->product->name, '-') }}">
+                        @if ($order->status == 0 || $order->status == 1)
+                        <form action="{{ route('/huy-don') }}" method="POST">
+                        <input type="hidden" name="customer_id" value="{{ $order->customer_id }}">
+
+                            <input type="hidden" name="status" value="4">
+                            @csrf
+                            <a onclick="return confirm('Bạn có chắc muốn hủy đơn hàng này?')" >
                             <button class="btn btn-danger">Hủy đơn</button>
                         </a>
+                    </form>
                         @endif
                     </td>
 

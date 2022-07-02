@@ -97,7 +97,11 @@ Route::middleware('user_login')->group( function () {
     Route::post('carts', [CartController::class, 'addCart']);
 
     //Danh sách đơn hàng phía người dùng
-Route::get('/order_user/{id}/menu/{menuId?}', [CartController::class, 'order']);
+    Route::get('/order_user/{id}/menu/{menuId?}', [CartController::class, 'order']);
+
+    //Hủy đơn hàng
+    Route::post('/update-order', [CartController::class, 'updateOrder'])->name('/huy-don');
+    
 });
 
 

@@ -66,4 +66,10 @@ class CartController extends Controller
             'orders' => $carts,
         ]);
     }
+
+    public function updateOrder(Request $request, Cart $cartService){
+        $this->cartService->updateStatus($request, $cartService);
+        return redirect()->back();
+
+    }
 }
