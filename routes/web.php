@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\Users\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController as ControllersLoginController;
@@ -77,6 +78,11 @@ Route::middleware('admin')->group(function () {
         Route::post('customers/update', [AdminCartController::class, 'update'])->name('customer/update');
 
         Route::get('customers/view/{customer}', [AdminCartController::class, 'show']);
+
+        //User
+        Route::get('user-account', [UserController::class, 'index']);
+        Route::post('lock-account', [UserController::class, 'lock'])->name('lock-account');
+        Route::post('unlock-account', [UserController::class, 'unlock'])->name('unlock-account');
     });
 });
 
