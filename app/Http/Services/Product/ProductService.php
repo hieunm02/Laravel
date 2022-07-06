@@ -3,6 +3,9 @@ namespace App\Http\Services\Product;
 
 use App\Models\Menu;
 use App\Models\Product;
+use App\Models\ProductReview;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
     class ProductService 
@@ -37,7 +40,7 @@ use Illuminate\Support\Facades\Session;
                 Session::flash('success', 'Thêm mới thành công');
             } catch (\Exception $err) {
             Session::flash('error', 'Lỗi thêm mới sản phẩm');
-                \Log::info($err->getMessage());
+                Log::info($err->getMessage());
                 return false;
             }
             return true;
@@ -60,7 +63,7 @@ use Illuminate\Support\Facades\Session;
 
             } catch (\Exception $err) {
                 Session::flash('error', 'Lỗi cập nhật sản phẩm');
-                \Log::info($err->getMessage());
+                Log::info($err->getMessage());
                 return false;
             }
             
@@ -91,6 +94,27 @@ use Illuminate\Support\Facades\Session;
                             ->where('id', '!=', $id)
                             ->limit(8)
                             ->get();
+        }
+
+        public function review($request){
+            try {
+                ProductReview::create($request->all());
+                Session::flash('success', 'Đánh giá thành công');
+            } catch (\Exception $err) {
+                Session::flash('error', "Đánh giá không thành công");
+                Log::info($err->getMessage());
+                return false;
+            }               
+            return true;
+        }
+
+        public function showReview($id){
+            return DB::table('product_reviews')
+                        ->join('users', 'users.id', '=', 'product_reviews.user_id')
+                        ->where('product_id', $id)
+                        ->select('product_reviews.content as content', 'users.name as user_name', 'product_reviews.created_at as created_at')
+                        ->get();
+
         }
     }
 ?>

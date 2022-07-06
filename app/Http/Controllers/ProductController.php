@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\Product\ProductService;
+use App\Models\ProductReview;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -21,7 +22,13 @@ class ProductController extends Controller
         return view('product.content', [
             'title' => $product->name,
             'product' => $product,
-            'products' => $productsMore
+            'products' => $productsMore,
+            'reviews' => $this->productService->showReview($id),
         ]);
+    }
+
+    public function review(Request $request){
+        $this->productService->review($request);
+        return redirect()->back();
     }
 }

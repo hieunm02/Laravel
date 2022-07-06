@@ -86,16 +86,31 @@ Route::middleware('admin')->group(function () {
     });
 });
 
+//Đăng nhập trang quản trị
 Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
 Route::post('admin/users/login/store', [LoginController::class, 'store']);
+
+//Trang chủ
 Route::get('/', [ControllersMainController::class, 'index']);
+
+//Xem thêm sản phẩm
 Route::post('/services/load-product', [ControllersMainController::class, 'loadProduct']);
+
+//Danh mục sản phẩm
 Route::get('danh-muc/{id}-{slug}', [ControllersMenuController::class, 'index']);
+
+//Chi tiết sản phẩm
 Route::get('san-pham/{id}-{slug}', [ControllersProductController::class, 'index']);
+
+//Bình luận sản phẩm
+Route::post('san-pham/{id}-{slug}', [ControllersProductController::class, 'review']);
+
+//Giỏ hàng
 Route::post('add-cart', [CartController::class, 'index']);
 Route::get('carts', [CartController::class, 'show']);
 Route::post('/update-cart', [CartController::class, 'update']);
 Route::get('carts/delete/{id}', [CartController::class, 'remove']);
+
 
 Route::middleware('user_login')->group( function () {
 
@@ -109,6 +124,8 @@ Route::middleware('user_login')->group( function () {
     Route::post('/update-order', [CartController::class, 'updateOrder'])->name('/huy-don');
     
 });
+
+
 
 
 //login with google

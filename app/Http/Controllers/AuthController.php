@@ -30,7 +30,7 @@ class AuthController extends Controller
                 exit();
             }
 
-            $user = User::where('email', $userdata->email)->where('auth_type', 'google')->where('active', 0)->first();
+            $user = User::where('email', $userdata->email)->where('auth_type', 'google')->where('active', 0)->first(); 
 
         if($user){
             //do login
