@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CartController as AdminCartController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -83,6 +84,11 @@ Route::middleware('admin')->group(function () {
         Route::get('user-account', [UserController::class, 'index']);
         Route::post('lock-account', [UserController::class, 'lock'])->name('lock-account');
         Route::post('unlock-account', [UserController::class, 'unlock'])->name('unlock-account');
+
+        //Review
+        Route::get('reviews', [ReviewController::class, 'index']);
+        Route::post('lock-review', [ReviewController::class, 'lock'])->name('lock-review');
+        Route::post('unlock-review', [ReviewController::class, 'unlock'])->name('unlock-review');
     });
 });
 
@@ -104,6 +110,9 @@ Route::get('san-pham/{id}-{slug}', [ControllersProductController::class, 'index'
 
 //Bình luận sản phẩm
 Route::post('san-pham/{id}-{slug}', [ControllersProductController::class, 'review']);
+
+//Gỡ bình luận sản phẩm
+Route::delete('san-pham/{id}-{slug}', [ControllersProductController::class, 'deleteReview']);
 
 //Giỏ hàng
 Route::post('add-cart', [CartController::class, 'index']);

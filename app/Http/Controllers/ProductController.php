@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\Product\ProductService;
-use App\Models\ProductReview;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -29,6 +28,11 @@ class ProductController extends Controller
 
     public function review(Request $request){
         $this->productService->review($request);
+        return redirect()->back();
+    }
+
+    public function deleteReview(Request $request){
+        $this->productService->deleteReview($request);
         return redirect()->back();
     }
 }

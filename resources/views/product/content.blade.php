@@ -173,7 +173,7 @@
                     </li>
 
                     <li class="nav-item p-b-10">
-                        <a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Đánh giá (1)</a>
+                        <a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Đánh giá ({{ count($reviews) }})</a>
                     </li>
                 </ul>
 
@@ -255,7 +255,7 @@
                                     <!-- Review -->
                                     @foreach ($reviews as $review)
                                         
-                                    <div class="flex-w flex-t p-b-68">
+                                    <div class="flex-w flex-t p-b-30 p-t-30" style="border-bottom:1px solid rgb(231, 228, 228)">
                                         <div class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
                                             <img src="/template/images/avatar_basic.jpg" >
                                         </div>
@@ -266,19 +266,36 @@
                                                     {{ $review->user_name }}
                                                 </span>
 
-                                                <span class="fs-18 cl11">
-                                                    <i class="zmdi zmdi-star"></i>
-                                                    <i class="zmdi zmdi-star"></i>
-                                                    <i class="zmdi zmdi-star"></i>
-                                                    <i class="zmdi zmdi-star"></i>
-                                                    <i class="zmdi zmdi-star-half"></i>
-                                                </span>
+                                                
+                                                @if (Session::get('user_id') == $review->user_id)
+                                                <form action="" method="post">
+                                                    {{ method_field('delete') }}
+                                                    <input type="hidden" name="id_review" value="{{ $review->id }}">
+                                                    @csrf
+                                                <a onclick="return confirm('Bạn có chắc muốn gỡ bình luận!')">
+                                                    <button class="btn btn-danger"><span class="lnr lnr-trash"></span></button>
+                                                </a>
+                                            </form>
+                                                @endif
+
                                             </div>
+                                            <span class="fs-18 cl11">
+                                                <i class="zmdi zmdi-star"></i>
+                                                <i class="zmdi zmdi-star"></i>
+                                                <i class="zmdi zmdi-star"></i>
+                                                <i class="zmdi zmdi-star"></i>
+                                                <i class="zmdi zmdi-star-half"></i>
+                                            </span>
 
                                             <p class="stext-102 cl6">
                                                 {{ $review->content }}
                                             </p>
+
+                                            <div class="icon-like" style="width: 20px; cursor: pointer;margin-top: 20px;">
+                                                <span class="lnr lnr-thumbs-up"></span>
+                                                </div>
                                         </div>
+                                        
                                     </div>
                                     @endforeach
 

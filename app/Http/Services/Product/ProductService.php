@@ -111,10 +111,20 @@ use Illuminate\Support\Facades\Session;
         public function showReview($id){
             return DB::table('product_reviews')
                         ->join('users', 'users.id', '=', 'product_reviews.user_id')
+                        ->where('product_reviews.active', 0)
                         ->where('product_id', $id)
-                        ->select('product_reviews.content as content', 'users.name as user_name', 'product_reviews.created_at as created_at')
+                        ->select('product_reviews.content as content', 'product_reviews.id as id', 'users.name as user_name', 'users.id as user_id', 'product_reviews.created_at as created_at')
                         ->get();
 
+        }
+
+        public function deleteReview($request){
+            $review = ProductReview::where('id', $request->input('id_review'))->first();
+            if($review){
+                $review->delete();
+                return true;
+            }
+            return false;
         }
     }
 ?>
