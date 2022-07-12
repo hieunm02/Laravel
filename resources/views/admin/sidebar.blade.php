@@ -190,6 +190,28 @@
           </li>
 
       </ul>
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-address-book"></i>
+                  <p>
+                      Liện hệ
+                      <i class="right fas fa-angle-left"></i>
+                  </p>
+              </a>
+              <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                      <a href="/admin/contacts" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Danh sách Liện hệ</p>
+                      </a>
+                  </li>
+              </ul>
+          </li>
+
+      </ul>
 
       </nav>
       <!-- /.sidebar-menu -->

@@ -33,7 +33,7 @@
 
 
 							<li>
-								<a href="contact.html">Liên hệ</a>
+								<a href="/form-contact">Liên hệ</a>
 							</li>
 
 							
@@ -140,7 +140,7 @@
 
 
 				<li>
-					<a href="contact.html">Liên hệ</a>
+					<a href="/form-contact">Liên hệ</a>
 				</li>
 
 				<li>

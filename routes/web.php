@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CartController as AdminCartController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ProductController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\Users\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LoginController as ControllersLoginController;
 use App\Http\Controllers\MainController as ControllersMainController;
 use App\Http\Controllers\MenuController as ControllersMenuController;
@@ -89,6 +91,9 @@ Route::middleware('admin')->group(function () {
         Route::get('reviews', [ReviewController::class, 'index']);
         Route::post('lock-review', [ReviewController::class, 'lock'])->name('lock-review');
         Route::post('unlock-review', [ReviewController::class, 'unlock'])->name('unlock-review');
+
+        //Contact
+        Route::get('contacts', [AdminContactController::class, 'index']);
     });
 });
 
@@ -148,5 +153,9 @@ Route::get('/user_login', [ControllersLoginController::class, 'index']);
 
 //logout
 Route::get('/logout', [ControllersLoginController::class, 'logout']);
+
+//Form contact
+Route::get('/form-contact', [ContactController::class, 'index']);
+Route::post('/form-contact', [ContactController::class, 'post']);
 
 
