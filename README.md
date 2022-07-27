@@ -6,4 +6,4 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
-Dự án cá nhân tự làm - chủ đề xây dựng 1 sàn thương mại điện tử kinh doanh phụ kiện thời trang gồm phía khách hàng và người quản lý
+Dự án cá nhân - chủ đề xây dựng 1 sàn thương mại điện tử kinh doanh phụ kiện thời trang gồm phía khách hàng và người quản lý
